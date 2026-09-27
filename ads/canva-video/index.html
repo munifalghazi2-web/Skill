@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>Yemen Top Canva Ad</title>
+<style>
+  @font-face { font-family: T; src: url(fonts/Tajawal-Bold.ttf); font-weight: 700; }
+  @font-face { font-family: T; src: url(fonts/Tajawal-ExtraBold.ttf); font-weight: 800; }
+  :root { --navy:#07154a; --navy2:#030a2a; --blue:#1673ff; --orange:#ff7a00; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; }
+  body { font-family: T, sans-serif; font-weight: 700; color: #fff; position: relative;
+    background: radial-gradient(1200px 900px at 50% 20%, #10256e 0%, var(--navy) 45%, var(--navy2) 100%); }
+  .ltr { direction: ltr; unicode-bidi: isolate; display: inline-block; }
+
+  /* ambient glows */
+  .glow { position: absolute; border-radius: 50%; filter: blur(120px); opacity: .55; }
+  .g1 { width: 620px; height: 620px; background: var(--blue); top: -160px; right: -200px; animation: drift1 30s linear 0s both; }
+  .g2 { width: 560px; height: 560px; background: var(--orange); bottom: -180px; left: -200px; opacity: .35; animation: drift2 30s linear 0s both; }
+  @keyframes drift1 { to { transform: translate(-160px, 220px); } }
+  @keyframes drift2 { to { transform: translate(180px, -260px); } }
+
+  /* header */
+  .header { position: absolute; top: 90px; left: 0; right: 0; text-align: center; }
+  .tag { display: inline-block; padding: 14px 40px; border-radius: 60px; font-size: 44px; font-weight: 800;
+    background: linear-gradient(90deg, var(--orange), #ff9d2e); color: #fff; box-shadow: 0 12px 40px rgba(255,122,0,.35); }
+  .sub { margin-top: 22px; font-size: 38px; color: #b8c8ff; animation: fadeOut .5s ease 19.9s both; }
+
+  /* chat */
+  .chat { position: absolute; top: 330px; left: 50px; right: 50px; bottom: 230px; direction: ltr;
+    display: flex; flex-direction: column; gap: 34px; }
+  .chat-inner { display: flex; flex-direction: column; gap: 34px; animation: scrollUp .8s cubic-bezier(.3,.7,.2,1) 20.0s both; }
+  @keyframes scrollUp { from { transform: translateY(0); } to { transform: translateY(var(--scroll, 0px)); } }
+  .row { display: flex; align-items: flex-end; gap: 20px; position: relative; }
+  .row.a { justify-content: flex-start; }
+  .row.b { justify-content: flex-end; }
+  .av { width: 96px; height: 96px; border-radius: 50%; flex: none; display: grid; place-items: center; font-size: 54px; }
+  .row.a .av { background: #e7ecff; }
+  .row.b .av { background: #fff; overflow: hidden; }
+    .bubble { direction: rtl; max-width: 790px; padding: 28px 36px; font-size: 43px; line-height: 1.45; border-radius: 42px; }
+  .row.a .bubble { background: #fff; color: var(--navy); border-bottom-left-radius: 10px; }
+  .row.b .bubble { background: linear-gradient(135deg, var(--blue), #0d4fd6); color: #fff; border-bottom-right-radius: 10px;
+    box-shadow: 0 14px 40px rgba(22,115,255,.35); }
+  .row.b .av { order: 2; }
+  .who { font-size: 30px; opacity: .8; margin-bottom: 8px; }
+  .row.a .who { color: #7d8bbd; }
+  .pop { opacity: 0; animation-name: pop; animation-duration: .5s; animation-timing-function: cubic-bezier(.2,1.4,.4,1); animation-fill-mode: both; }
+  @keyframes pop { from { opacity: 0; transform: translateY(40px) scale(.85); } to { opacity: 1; transform: none; } }
+
+  .typing { position: absolute; right: 116px; bottom: 0; background: linear-gradient(135deg, var(--blue), #0d4fd6);
+    border-radius: 42px; border-bottom-right-radius: 10px; padding: 30px 40px; display: flex; gap: 14px; opacity: 0;
+    animation-name: showhide; animation-duration: 1s; animation-timing-function: linear; animation-fill-mode: both; }
+  .typing i { width: 20px; height: 20px; border-radius: 50%; background: #fff; animation: dot .9s ease-in-out infinite; }
+  .typing i:nth-child(2) { animation-delay: .15s; } .typing i:nth-child(3) { animation-delay: .3s; }
+  @keyframes dot { 0%,100% { opacity: .35; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-10px); } }
+  @keyframes showhide { 0% { opacity: 0; } 12% { opacity: 1; } 88% { opacity: 1; } 100% { opacity: 0; } }
+
+  .emph { animation: emph 1.2s ease-in-out 21.6s both; }
+  @keyframes emph { 0%,100% { transform: scale(1); } 40% { transform: scale(1.06); } }
+
+  /* hook */
+  .hook { position: absolute; inset: 0; z-index: 20; display: grid; place-items: center; text-align: center;
+    background: radial-gradient(circle at 50% 45%, #13307f, var(--navy2) 75%); animation: fadeOut .45s ease 2.4s both; }
+  @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
+  .phone { font-size: 260px; animation: zoomIn 1.6s cubic-bezier(.15,.9,.2,1) 0s both; }
+  @keyframes zoomIn { from { transform: scale(.35) rotate(-12deg); opacity: 0; } 60% { opacity: 1; } to { transform: scale(1.15) rotate(0); opacity: 1; } }
+  .hook h1 { font-size: 78px; font-weight: 800; line-height: 1.45; padding: 0 60px; margin-top: 40px;
+    animation: punch .6s cubic-bezier(.2,1.5,.4,1) .35s both; }
+  .hook h1 .o { color: var(--orange); }
+  @keyframes punch { from { opacity: 0; transform: scale(1.6); } to { opacity: 1; transform: none; } }
+
+  /* price modal */
+  .modal { position: absolute; inset: 0; z-index: 15; display: grid; place-items: center; background: rgba(3,10,42,.72);
+    opacity: 0; animation: modal 4.3s linear 15.0s both; }
+  @keyframes modal { 0% { opacity: 0; } 8% { opacity: 1; } 92% { opacity: 1; } 100% { opacity: 0; visibility: hidden; } }
+  .card { width: 860px; background: #fff; color: var(--navy); border-radius: 56px; padding: 70px 50px; text-align: center;
+    box-shadow: 0 30px 90px rgba(0,0,0,.45); animation: zoomCard 1s cubic-bezier(.2,1.4,.4,1) 15.1s both; }
+  @keyframes zoomCard { from { transform: scale(.6); } to { transform: scale(1); } }
+  .card .lbl { font-size: 48px; color: #5b6aa0; }
+  .card .price { font-size: 170px; font-weight: 800; color: var(--orange); line-height: 1.15; margin: 10px 0 20px;
+    animation: pulse 1.4s ease-in-out 16.2s 2 both; }
+  @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+  .card .price small { font-size: 80px; }
+  .card .dur { display: inline-block; margin-top: 10px; font-size: 56px; font-weight: 800; color: #fff; padding: 18px 44px;
+    border-radius: 40px; background: linear-gradient(90deg, var(--navy), var(--blue)); }
+
+  /* end card */
+  .end { position: absolute; inset: 0; z-index: 18; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; background: radial-gradient(circle at 50% 40%, #16358d, var(--navy2) 80%); opacity: 0;
+    animation: fadeIn .6s ease 24.0s both; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .end .big { width: 440px; height: 440px;
+    box-shadow: 0 0 0 14px rgba(255,255,255,.08), 0 30px 90px rgba(0,0,0,.5); animation: pop .8s cubic-bezier(.2,1.4,.4,1) 24.3s both; }
+    .end h2 { font-size: 70px; font-weight: 800; margin-top: 70px; animation: pop .6s ease 25.0s both; }
+  .wa { margin-top: 50px; padding: 32px 40px; border-radius: 40px; font-size: 54px; font-weight: 800;
+    background: linear-gradient(90deg, var(--orange), #ff9d2e); box-shadow: 0 20px 60px rgba(255,122,0,.4);
+    animation: pop .6s cubic-bezier(.2,1.4,.4,1) 25.6s both, emph2 1.2s ease-in-out 26.6s 2; }
+  @keyframes emph2 { 0%,100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+
+  .lc { border-radius: 50%; overflow: hidden; background: #fff; position: relative; }
+  .lc img { position: absolute; width: 122%; height: 122%; left: 50%; top: 50%; transform: translate(-50%, -50%); object-fit: contain; }
+  /* watermark */
+  .wm { position: absolute; right: 44px; bottom: 56px; width: 150px; height: 150px; opacity: .8; z-index: 50; }
+</style>
+</head>
+<body>
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+
+  <div class="header">
+    <div class="tag">عرض أداة كانفا 🎨</div>
+    <div class="sub">مع يمن توب للخدمات الرقمية</div>
+  </div>
+
+  <div class="chat">
+    <div class="chat-inner" id="chatInner">
+      <div class="row a pop" style="animation-delay:3.0s">
+        <div class="av">👤</div>
+        <div class="bubble"><div class="who">زبون</div>عندي منتجات كثيرة واحتاج الى اداة تصميم صور لكي اصمم لمنتجاتي</div>
+      </div>
+      <div class="row b">
+        <div class="typing" style="animation-delay:4.7s"><i></i><i></i><i></i></div>
+        <div class="row b pop" style="animation-delay:5.7s;width:100%">
+          <div class="av lc"><img src="logo.png"></div>
+          <div class="bubble"><div class="who">يمن توب</div>لا تقلق مع يمن توب رح تجد حل مشكلتك كامل، احنا موفرين لك عرض اداة كانفا افضل اداة تصميم للمنتجات</div>
+        </div>
+      </div>
+      <div class="row a pop" style="animation-delay:10.8s">
+        <div class="av">👤</div>
+        <div class="bubble"><div class="who">زبون</div>حلو، بكم سعر الاشتراك وكم مدة الاشتراك؟</div>
+      </div>
+      <div class="row b">
+        <div class="typing" style="animation-delay:12.1s"><i></i><i></i><i></i></div>
+        <div class="row b pop" style="animation-delay:13.1s;width:100%">
+          <div class="av lc"><img src="logo.png"></div>
+          <div class="bubble"><div class="who">يمن توب</div>سعر الاشتراك ب1400 ريال ومدة الاشتراك سنتين</div>
+        </div>
+      </div>
+      <div class="row b">
+        <div class="typing" style="animation-delay:19.6s"><i></i><i></i><i></i></div>
+        <div class="row b pop" style="animation-delay:20.6s;width:100%">
+          <div class="av lc"><img src="logo.png"></div>
+          <div class="bubble emph"><div class="who">يمن توب</div>كل ما عليك هو التواصل معانا على الارقام الظاهرة على الشاشة</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal">
+    <div class="card">
+      <div class="lbl">💰 سعر الاشتراك</div>
+      <div class="price"><span class="ltr">1400</span> <small>ريال</small></div>
+      <div class="dur">⏳ مدة الاشتراك: سنتين</div>
+    </div>
+  </div>
+
+  <div class="end">
+    <div class="big lc"><img src="logo.png"></div>
+    <h2>تواصل معنا الآن</h2>
+    <div class="wa">واتساب: <span class="ltr">771922199 - 775883709</span> 📲</div>
+  </div>
+
+  <div class="hook">
+    <div>
+      <div class="phone">📱</div>
+      <h1>🎨 تصمم منتجاتك<br>زي المحترفين؟<br><span class="o">شوف الحل!</span></h1>
+    </div>
+  </div>
+
+  <div class="wm lc"><img src="logo.png" alt=""></div>
+
+<script>
+  // Scroll the chat up just enough to fit the last message, if it overflows.
+  window.fitChat = () => {
+    const chat = document.querySelector('.chat'), inner = document.getElementById('chatInner');
+    const over = inner.scrollHeight - chat.clientHeight;
+    inner.style.setProperty('--scroll', (over > 0 ? -over : 0) + 'px');
+    return over;
+  };
+  window.seek = (t) => {
+    for (const a of document.getAnimations()) { a.pause(); a.currentTime = t * 1000; }
+  };
+</script>
+</body>
+</html>
