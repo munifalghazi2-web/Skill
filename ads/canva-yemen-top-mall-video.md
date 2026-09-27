@@ -59,5 +59,5 @@ They stand facing each other in the walkway. Medium two-shot, energetic pacing. 
 1. Join Clips 1 → 2 → 3 in order.
 2. Hook text: 0–2s, top-centre, bold white on navy.
 3. WhatsApp text: last 2–3s, large, centre-bottom (above the logo).
-4. Logo: the original file, bottom-right, same small size on all clips, **80% opacity**, clear of both characters.
+4. Logo: `ads/yemen-top-logo.png` (original file, do not redraw), bottom-right, same small size on all clips, **80% opacity**, clear of both characters.
 5. Check lip-sync and word order. Regenerate any clip that swaps speakers or repeats words.
