@@ -28,14 +28,14 @@ const CAM: [number, number, number, number][] = [
   [0.7, 2.5, A_FACE.x, A_FACE.y],
   [2.0, 2.6, A_FACE.x, A_FACE.y],
   [2.7, 1.0, WIDE.x, WIDE.y],
-  [17.8, 1.0, WIDE.x, WIDE.y],
-  [18.5, 1.45, B_FACE.x, B_FACE.y + 250],
-  [21.6, 1.5, B_FACE.x, B_FACE.y + 250],
-  [22.2, 1.0, WIDE.x, WIDE.y],
-  [23.4, 1.0, WIDE.x, WIDE.y],
-  [24.0, 1.4, B_FACE.x, B_FACE.y + 250],
-  [25.8, 1.45, B_FACE.x, B_FACE.y + 250],
-  [26.4, 1.0, WIDE.x, WIDE.y],
+  [19.8, 1.0, WIDE.x, WIDE.y],
+  [20.5, 1.45, B_FACE.x, B_FACE.y + 250],
+  [23.6, 1.5, B_FACE.x, B_FACE.y + 250],
+  [24.2, 1.0, WIDE.x, WIDE.y],
+  [25.4, 1.0, WIDE.x, WIDE.y],
+  [26.0, 1.4, B_FACE.x, B_FACE.y + 250],
+  [28.2, 1.45, B_FACE.x, B_FACE.y + 250],
+  [28.8, 1.0, WIDE.x, WIDE.y],
 ];
 
 const camera = (t: number) => {
