@@ -1,3 +1,6 @@
 node_modules/
 ads/remotion-ad/out/s-*.png
 ads/remotion-ad/out/render.log
+ads/topup-promo/out/*.png
+ads/topup-promo/out/*.jpg
+ads/topup-promo/out/render.log
