@@ -75,6 +75,20 @@ const Clip: React.FC<{src: string; startFrom?: number; muted?: boolean; zoom?: [
   );
 };
 
+// eFootball artwork: blurred cover fill behind a sharp, full-width copy.
+const ImageBg: React.FC<{zoom: [number, number]; len: number; blurAll?: boolean}> = ({zoom, len, blurAll}) => {
+  const frame = useCurrentFrame();
+  const z = interpolate(frame, [0, len], zoom, {extrapolateRight: 'clamp'});
+  return (
+    <AbsoluteFill>
+      <Img src={staticFile('efootball.jpg')} style={{position: 'absolute', width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(28px) brightness(.8)', transform: 'scale(1.15)'}} />
+      {blurAll ? null : (
+        <Img src={staticFile('efootball.jpg')} style={{position: 'absolute', left: 0, top: 960 - 303, width: 1080, height: 606, objectFit: 'cover', transform: `scale(${z})`, boxShadow: '0 30px 80px rgba(0,0,0,.6)'}} />
+      )}
+    </AbsoluteFill>
+  );
+};
+
 // Clean price card that covers the original cards (which showed ₹ and garbled text).
 const PricePanel: React.FC = () => {
   const frame = useCurrentFrame();
@@ -122,21 +136,23 @@ export const Promo: React.FC = () => {
 
   return (
     <AbsoluteFill style={{background: '#07061f'}}>
-      {/* HOOK: stadium then FC / eFootball screen, with audio from video 1 */}
+      {/* HOOK: eFootball 2026 artwork, then the FC Mobile screen, with audio from video 1 */}
       <Sequence from={0} durationInFrames={s(1.25)}>
-        <Clip src="v1.mp4" muted zoom={[1.0, 1.35]} len={s(1.25)} blur={9} />
+        <ImageBg zoom={[1.0, 1.12]} len={s(1.25)} />
       </Sequence>
       <Sequence from={s(1.25)} durationInFrames={s(1.25)}>
         <Clip src="v1.mp4" startFrom={s(4.7)} muted zoom={[1.25, 1.05]} len={s(1.25)} blur={4} />
       </Sequence>
       <Sequence from={0} durationInFrames={s(HOOK.len)}>
         <Audio src={staticFile('v1.mp4')} startFrom={s(5)} volume={(f) => interpolate(f, [s(2.2), s(2.5)], [1, 0.2], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})} />
-        <AbsoluteFill style={{background: 'radial-gradient(circle at 50% 45%, rgba(7,6,31,.5), rgba(7,6,31,.85) 75%)'}} />
-        <div style={{position: 'absolute', top: 680, left: 30, right: 30, textAlign: 'center', direction: 'rtl', transform: `translateX(${shake}px)`}}>
+        <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(7,6,31,.9) 0%, rgba(7,6,31,.2) 32%, rgba(7,6,31,.2) 68%, rgba(7,6,31,.9) 100%)'}} />
+        <div style={{position: 'absolute', top: 330, left: 30, right: 30, textAlign: 'center', direction: 'rtl', transform: `translateX(${shake}px)`}}>
           <div style={{display: 'inline-block', fontFamily: FONT, fontWeight: 800, fontSize: 96, lineHeight: 1.25, color: '#fff', textShadow: '0 8px 30px rgba(0,0,0,.7)', transform: `scale(${0.4 + 0.6 * h1})`, opacity: Math.min(1, h1 * 1.5)}}>
             لاعب فيفا أو بيس؟ 🎮
           </div>
-          <div style={{marginTop: 40, display: 'inline-block', fontFamily: FONT, fontWeight: 800, fontSize: 62, lineHeight: 1.3, whiteSpace: 'nowrap', color: '#fff', padding: '18px 36px', borderRadius: 30, background: `linear-gradient(90deg, ${ORANGE}, #ff5a1f)`, boxShadow: '0 16px 50px rgba(255,120,30,.5)', transform: `scale(${h2})`}}>
+        </div>
+        <div style={{position: 'absolute', top: 1400, left: 30, right: 30, textAlign: 'center', direction: 'rtl'}}>
+          <div style={{ display: 'inline-block', fontFamily: FONT, fontWeight: 800, fontSize: 62, lineHeight: 1.3, whiteSpace: 'nowrap', color: '#fff', padding: '18px 36px', borderRadius: 30, background: `linear-gradient(90deg, ${ORANGE}, #ff5a1f)`, boxShadow: '0 16px 50px rgba(255,120,30,.5)', transform: `scale(${h2})`}}>
             🔥 لا تشحن قبل ما تشوف هذا 👀
           </div>
         </div>
@@ -159,7 +175,9 @@ export const Promo: React.FC = () => {
       {/* END CARD */}
       <Sequence from={s(END.from)} durationInFrames={s(END.len)}>
         <Audio src={staticFile('v1.mp4')} startFrom={s(7.5)} volume={(f) => interpolate(f, [0, s(2.1), s(2.5)], [1, 1, 0], {extrapolateRight: 'clamp'})} />
-        <AbsoluteFill style={{background: `radial-gradient(circle at 50% 38%, #3b1d8f, #12082f 75%)`, alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
+        <ImageBg zoom={[1.05, 1.15]} len={s(END.len)} blurAll />
+        <AbsoluteFill style={{background: 'radial-gradient(circle at 50% 38%, rgba(59,29,143,.82), rgba(18,8,47,.94) 75%)'}} />
+        <AbsoluteFill style={{background: 'transparent', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
           <div style={{width: 400, height: 400, borderRadius: '50%', overflow: 'hidden', background: '#fff', position: 'relative', transform: `scale(${endIn})`, boxShadow: '0 0 0 14px rgba(255,255,255,.08), 0 30px 90px rgba(0,0,0,.5)'}}>
             <Img src={staticFile('logo.png')} style={{position: 'absolute', width: '122%', height: '122%', left: '50%', top: '50%', transform: 'translate(-50%,-50%)', objectFit: 'contain'}} />
           </div>
